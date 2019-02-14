@@ -1,0 +1,47 @@
+#class structure
+
+
+So we have a tile and a board right?
+
+TILE
+  -FN's checkbomb
+  -vars
+    ->Bool ismine
+    ->Int Row
+    -> Int Col
+    -> int NumBombNeighbors
+    -> Numsides
+
+
+    checkbomb (int x, int y)
+    {
+      if (tile(x,y).isbomb())
+      {
+        game over
+      }
+      else if (tile(x,y).isempty())
+      {
+        run checkbomb on neighbors
+        reveal
+      }
+      else
+      {
+        reveal
+      }
+    }
+
+    SUB REVEALED, gui elements
+      -empty
+      -numbered
+    SUB UNREVEALED, gui elements
+      -flag
+      -nothing
+
+
+
+BOARD
+  -NxN grid right now
+  - in node structure, multiple links between tiles
+  - num of mines
+  -minesreaveled
+  timer
